@@ -3,3 +3,6 @@
 USART1 用作监视输出，已经重定向fputc,可以使用printf输出
 
 测试git 功能
+
+硬件包含一个LED灯，D12，KEY，A0。
+USART1 用作监视输出，已经重定向fputc,可以使用printf输出
