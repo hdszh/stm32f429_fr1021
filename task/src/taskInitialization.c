@@ -1,6 +1,6 @@
 #include "TaskDef.h"
 #include "AppSemrCfg.h"
-#include "kfb_usart1.h"
+#include "kfb_cfg.h"
 
 void TaskInitialization(void *parg)
 {
@@ -8,9 +8,7 @@ void TaskInitialization(void *parg)
     RCC_GetClocksFreq(&RCC_Clocks);
     
     AppSemrCfgInitialization();
-    USARTx_DMA_Config();
-    Debug_USART_Config();
-    
+    KFB_Init();
     TaskCreate();
     
     while (1)
@@ -20,7 +18,10 @@ void TaskInitialization(void *parg)
             vTaskDelay(1000);
             hxb_led_toggle();
         }
-        else vTaskDelay(250);
+        else {
+            hxb_led_toggle();
+            vTaskDelay(250);
+        }
         
         
         _NOP();

@@ -1,8 +1,9 @@
 #ifndef __HXB_CFG_H__
 #define __HXB_CFG_H__
 
-#include "stm32f4xx.h"
 
+#include "hxb_led.h"
+#include "hxb_sdram.h"
 /*
 开发板上二个按键，一个复位键，Key,唤醒，WK_UP，PA.00,
 一个8M字节SRAM，一个串行FLASH ，16M bit;
@@ -22,20 +23,6 @@
     液晶接口--RG888模式（全部在排针引出）：
     
 */
-//口A0 定义为键输入
-#define HXB_KEY_PIN             GPIO_Pin_0
-#define HXB_KEY_PORT            GPIOA
-
-//键为低电平有效，片内上拉电阻有效
-#define hxb_key_value()       (GPIOA->IDR & 0x0001)   //初始化为下拉电阻，不取反
-
-//口D12 定义为发光二极管
-#define HXB_LED         GPIO_Pin_12
-#define LEDPORT         GPIOD
-
-#define hxb_led_on()        GPIO_ResetBits(LEDPORT, HXB_LED)
-#define hxb_led_off()       GPIO_SetBits(LEDPORT, HXB_LED)
-#define hxb_led_toggle()    GPIO_ToggleBits(LEDPORT,HXB_LED)
 
 #ifndef HXB_CFG_MODULE
 #define HXB_CFG_EXT   extern
