@@ -4,6 +4,8 @@
 
 #include "hxb_led.h"
 #include "hxb_sdram.h"
+#include "hxb_spi5.h"
+
 /*
 开发板上二个按键，一个复位键，Key,唤醒，WK_UP，PA.00,
 一个8M字节SRAM，一个串行FLASH ，16M bit;
